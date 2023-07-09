@@ -7,16 +7,8 @@ const Form = ({
 	emailError,
 	passwordError,
 	confirmPasswordError,
-	email,
-	password,
-	confirmPassword,
-	onEmailChange,
-	onEmailBlur,
-	onPasswordChange,
-	onConfirmPasswordChange,
-	onPasswordBlur,
-	onConfirmPasswordBlur,
 	registerButtonRef,
+	register,
 }) => {
 	return (
 		<div className={styles.container}>
@@ -30,34 +22,28 @@ const Form = ({
 					name='email'
 					type='email'
 					id='email'
-					value={email}
 					placeholder='Почта'
-					onChange={onEmailChange}
-					onBlur={onEmailBlur}
+					register={register('email')}
 				/>
 				<Input
 					name='password'
 					type='password'
 					id='password'
-					value={password}
 					placeholder='Пароль'
-					onChange={onPasswordChange}
-					onBlur={onPasswordBlur}
+					register={register('password')}
 				/>
 				<Input
 					name='ConfirmPassword'
 					type='password'
 					id='confirmPassword'
-					value={confirmPassword}
 					placeholder='Повторите пароль'
-					onChange={onConfirmPasswordChange}
-					onBlur={onConfirmPasswordBlur}
+					register={register('confirmPassword')}
 				/>
 				<button
-					ref={registerButtonRef}
 					className={styles.registerButton}
 					type='submit'
-					disabled={emailError || passwordError || confirmPasswordError}
+					ref={registerButtonRef}
+					disabled={!!emailError || !!passwordError || !!confirmPasswordError}
 				>
 					Зарегистрироваться
 				</button>

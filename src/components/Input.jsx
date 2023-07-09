@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Form.module.css'
 
-const Input = ({ name, type, id, placeholder, value, onChange }) => {
+const Input = ({ name, type, id, placeholder, register }) => {
 	return (
 		<div className={styles.formGroup}>
 			<label htmlFor={id}>{placeholder}:</label>
@@ -9,10 +9,9 @@ const Input = ({ name, type, id, placeholder, value, onChange }) => {
 				name={name}
 				type={type}
 				id={id}
-				value={value}
 				placeholder={placeholder}
-				onChange={onChange}
-			></input>
+				{...register}
+			/>
 		</div>
 	)
 }
